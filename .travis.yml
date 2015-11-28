@@ -1,0 +1,18 @@
+language: python
+python:
+  - 2.6
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
+install:
+  - pip install pip --upgrade
+  - pip install -r dev-requirements.txt
+  - pip install pytest --upgrade
+  - pip install coveralls
+script:
+  - if [ $TRAVIS_PYTHON_VERSION != 2.6 ]; then pylint guessitrest; fi
+  - coverage run --source=guessitrest setup.py test
+  - python setup.py build
+after_success:
+  - coveralls
