@@ -49,6 +49,7 @@ args = dict(name='guessit-rest',
             setup_requires=setup_requires,
             tests_require=tests_require,
             entry_points=entry_points,
+            test_suite='guessitrest.test',
             zip_safe=True
             )
 
