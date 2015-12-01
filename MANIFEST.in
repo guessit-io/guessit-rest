@@ -1,0 +1,12 @@
+recursive-include guessitrest *.py *.yml *.txt *.ini
+recursive-exclude guessitrest *.pyc
+include LICENSE
+include *.rst
+include *.ini
+include *.cfg
+include *.txt
+include *.json
+include pylintrc
+recursive-include docker *.txt
+include Dockerfile
+include .dockerignore
