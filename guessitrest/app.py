@@ -146,5 +146,8 @@ api.add_resource(GuessIt, '/guessit/')
 api.add_resource(GuessItVersion, '/guessit/version/')
 
 
+def main():  # pragma:no cover
+    app.run(host='0.0.0.0')
+
 if __name__ == '__main__':  # pragma:no cover
-    app.run()
+    main()
