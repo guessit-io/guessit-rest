@@ -22,7 +22,7 @@ entry_points = {
 }
 
 args = dict(name='guessit-rest',
-            version='2.0',
+            version='2.1.dev0',
             description='GuessIt - REST WebService',
             long_description=README,
             # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
