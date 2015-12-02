@@ -9,12 +9,12 @@ REST WebService for GuessIt
     :target: https://pypi.python.org/pypi/guessit-rest
     :alt: LGPLv3 License
 
-.. image:: http://img.shields.io/travis/Toilal/guessit-rest.svg
-    :target: https://travis-ci.org/Toilal/guessit-rest
+.. image:: http://img.shields.io/travis/guessit-io/guessit-rest.svg
+    :target: https://travis-ci.org/guessit-io/guessit-rest
     :alt: Build Status
 
-.. image:: http://img.shields.io/coveralls/Toilal/guessit-rest.svg
-    :target: https://coveralls.io/github/Toilal/guessit-rest
+.. image:: http://img.shields.io/coveralls/guessit-io/guessit-rest.svg
+    :target: https://coveralls.io/github/guessit-io/guessit-rest
     :alt: Coveralls
 
 GuessIt is a python library that extracts as much information as possible from a video filename.
