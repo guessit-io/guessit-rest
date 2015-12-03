@@ -7,6 +7,3 @@ include *.cfg
 include *.txt
 include *.json
 include pylintrc
-recursive-include docker *.txt
-include Dockerfile
-include .dockerignore
