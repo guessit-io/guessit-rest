@@ -1,0 +1,128 @@
+swagger: '2.0'
+info:
+  title: GuessIt 2 API
+  description: Extract information from video filename
+  version: 2.0.0
+host: api.guessit.io
+schemes:
+  - https
+basePath: /v2
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /:
+    get:
+      description: |
+        Returns guessit match object for given filename or release name.
+      parameters:
+        - name: filename
+          in: query
+          description: The filename or release name
+          required: true
+          type: string
+        - name: options
+          in: query
+          description: Options to pass
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Matches'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ParametersError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/UnexpectedError'
+    post:
+      description: |
+        Returns guessit match object for given filename or release name.
+      parameters:
+        - in: body
+          name: body
+          description: Object containing filename and options
+          required: true
+          schema:
+            $ref: '#/definitions/GuessItRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Matches'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ParametersError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/UnexpectedError'
+  /version/:
+    get:
+      description: |
+        Give version information
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/GuessItVersion'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/UnexpectedError'
+
+definitions:
+  UnexpectedError:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ParametersError:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: object
+        properties:
+          filename:
+            type: string
+            description: Error message related to filename parameter
+          options:
+            type: string
+            description: Error message related to options parameter
+  GuessItRequest:
+    type: object
+    required:
+      - filename
+    properties:
+      filename:
+        type: string
+        description: The filename or release name
+      options:
+        type: object
+        description: Options to pass, as an object
+  Matches:
+    type: object
+    title: Matches
+    description: Matches object as using Command Line with --json option.
+  GuessItVersion:
+    type: object
+    title: Version
+    required:
+      - guessit
+      - rest
+    properties:
+      guessit:
+        type: string
+        description: Version of guessit
+      rest:
+        type: string
+        description: Version of the rest api
