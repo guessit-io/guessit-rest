@@ -3,6 +3,7 @@
 
 import json
 import guessit
+import guessitrest
 
 from flask import url_for
 
@@ -11,8 +12,10 @@ class TestVersion(object):
     def test_version(self, client):
         response = client.get(url_for('.guessitversion'))
         assert response.status_code == 200
-        assert 'version' in response.json
-        assert response.json['version'] == guessit.__version__
+        assert 'guessit' in response.json
+        assert guessit.__version__ == response.json['guessit']
+        assert 'rest' in response.json
+        assert guessitrest.__version__ == response.json['rest']
 
 
 class AbstractTestGuessit(object):
