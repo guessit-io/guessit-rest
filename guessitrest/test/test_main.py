@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import json
-import guessit
-import guessitrest
 
 from flask import url_for
+
+import guessit
+import guessitrest
 
 
 class TestVersion(object):

@@ -7,12 +7,13 @@ from logging.handlers import RotatingFileHandler
 
 from flask import Flask, make_response
 from flask_restful import Api, Resource, reqparse
-from flask.ext.cors import CORS
+from flask.ext.cors import CORS  # pylint:disable=no-name-in-module,import-error
 
-from . import __version__
 
 import guessit
 from guessit.jsonutils import GuessitEncoder
+
+from . import __version__
 
 app = Flask(__name__)
 CORS(app)
