@@ -23,5 +23,7 @@ WORKDIR /root/guessit-rest/
 
 RUN pip install -e .
 
+EXPOSE 5000
+
 CMD guessit-rest
 
