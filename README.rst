@@ -32,19 +32,17 @@ Then run guessit rest API using entry point.
 
     $ guessit-rest
 
-And connect your browser to `http://localhost:5000/guessit/?filename=test.avi <http://localhost:5000/guessit/?filename=test.avi>`_.
-
 Install with Docker
 -------------------
 
 An automated build is available at `Docker Hub <https://hub.docker.com/r/toilal/guessit-rest/>`_.
 
-    $ docker run -it -p 5000:5000 toilal/guessit-rest
+    $ docker run -p 5000:5000 -it toilal/guessit-rest
 
 Usage
 -----
 
-Connect your browser to `http://localhost:5000/guessit/?filename=test.avi <http://localhost:5000/guessit/?filename=test.avi>`_
+Connect your browser to `http://localhost:5000/?filename=test.avi <http://localhost:5000/?filename=test.avi>`_
 
 License
 -------
