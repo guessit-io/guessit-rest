@@ -42,7 +42,7 @@ class AbstractTestGuessit(object):
         assert response.status_code == 400
         assert 'message' in response.json
         assert 'filename' in response.json['message']
-        assert 'Missing' in response.json['message']['filename']
+        assert 'Filename to parse' in response.json['message']['filename']
 
 
 class TestGuessitGet(AbstractTestGuessit):
