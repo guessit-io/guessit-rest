@@ -19,7 +19,7 @@ REST WebService for GuessIt
 
 GuessIt is a python library that extracts as much information as possible from a video filename.
 
-This is the REST WebService for `GuessIt <https://github.com/wackou/guessit>`_.
+This is the REST WebService for `GuessIt <https://github.com/guessit-io/guessit>`_.
 
 Install with pip
 ----------------
@@ -31,6 +31,25 @@ Python package is available on `PyPI <https://pypi.python.org/pypi/guessit-rest>
 Then run guessit rest API using entry point.
 
     $ guessit-rest
+
+Install from sources
+--------------------
+
+    $ git clone https://github.com/guessit-io/guessit-rest
+
+    $ cd guessit-rest
+
+Then configure a virtualenv with [pyenv](https://github.com/yyuu/pyenv) or any virtualenv manager you may like.
+
+    $ pyenv virtualenv ...
+
+Then install dependencies in the virtualenv.
+
+    $ pip install -e .
+
+Then run guessit rest API using main module.
+
+    $ python -m guessitrest.app
 
 Install with Docker
 -------------------
