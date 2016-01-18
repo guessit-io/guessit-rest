@@ -9,7 +9,7 @@ import os
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-install_requires = ['flask-restful', 'flask-cors', 'guessit>=2.0rc4']
+install_requires = ['flask-restful', 'flask-cors', 'guessit>=2.0rc5']
 
 setup_requires = ['pytest-runner']
 
