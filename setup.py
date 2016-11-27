@@ -24,7 +24,7 @@ if sys.version_info < (3, 3):
 
 entry_points = {
     'console_scripts': [
-        'guessit-rest = guessitrest.app:main'
+        'guessit-rest = guessitrest.__main__:main'
     ],
 }
 
