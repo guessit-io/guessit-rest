@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
 import json
+
 import logging
 from logging.handlers import RotatingFileHandler
 
-from flask import Flask, make_response
-from flask_restful import Api, Resource, reqparse
-from flask_cors import CORS  # pylint:disable=no-name-in-module,import-error
+import os
 
+from flask import Flask, make_response
+from flask_cors import CORS  # pylint:disable=no-name-in-module,import-error
+from flask_restful import Api, Resource, reqparse
 
 import guessit
 from guessit.jsonutils import GuessitEncoder
@@ -21,7 +22,7 @@ api = Api(app)
 app.debug = os.environ.get('GUESSIT-REST-DEBUG', False)
 
 if not app.debug:
-    handler = RotatingFileHandler('guessit-rest.log', maxBytes=5*1024*1024, backupCount=5)
+    handler = RotatingFileHandler('guessit-rest.log', maxBytes=5 * 1024 * 1024, backupCount=5)
     handler.setLevel(logging.DEBUG)
     app.logger.addHandler(handler)
 
@@ -51,7 +52,8 @@ class GuessIt(Resource):
 
 class GuessItVersion(Resource):
     def get(self):
-        return {'guessit' : guessit.__version__, 'rest': __version__}
+        return {'guessit': guessit.__version__, 'rest': __version__}
+
 
 api.add_resource(GuessIt, '/')
 api.add_resource(GuessItVersion, '/version/')

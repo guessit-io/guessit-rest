@@ -3,9 +3,9 @@
 
 import json
 
+import guessit
 from flask import url_for
 
-import guessit
 import guessitrest
 
 
@@ -53,4 +53,3 @@ class TestGuessitGet(AbstractTestGuessit):
 class TestGuessitPost(AbstractTestGuessit):
     def request(self, client, data=None):
         return client.post(url_for('.guessit'), content_type="application/json", data=json.dumps(data))
-

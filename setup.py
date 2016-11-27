@@ -16,7 +16,7 @@ if sys.version_info < (2, 7):
 
 setup_requires = ['pytest-runner']
 
-dev_require = ['zest.releaser[recommended]', 'pylint', 'tox']
+dev_require = ['zest.releaser[recommended]', 'pylint', 'tox', 'pylint']
 
 tests_require = ['pytest', 'pytest-flask', 'pytest-mock']
 if sys.version_info < (3, 3):
