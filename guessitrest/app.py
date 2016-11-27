@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 
 from flask import Flask, make_response
 from flask_restful import Api, Resource, reqparse
-from flask.ext.cors import CORS  # pylint:disable=no-name-in-module,import-error
+from flask_cors import CORS  # pylint:disable=no-name-in-module,import-error
 
 
 import guessit
@@ -55,10 +55,3 @@ class GuessItVersion(Resource):
 
 api.add_resource(GuessIt, '/')
 api.add_resource(GuessItVersion, '/version/')
-
-
-def main():  # pragma:no cover
-    app.run(host='0.0.0.0')
-
-if __name__ == '__main__':  # pragma:no cover
-    main()

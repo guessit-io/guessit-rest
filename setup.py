@@ -4,16 +4,23 @@
 from setuptools import setup, find_packages
 
 import os
+import sys
 
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-install_requires = ['flask-restful', 'flask-cors', 'guessit>=2.0rc5']
+install_requires = ['flask-restful', 'flask-cors', 'guessit']
+if sys.version_info < (2, 7):
+    install_requires.extend(['argparse'])
 
 setup_requires = ['pytest-runner']
 
-tests_require = ['pytest', 'pytest-flask']
+dev_require = ['zest.releaser[recommended]', 'pylint', 'tox']
+
+tests_require = ['pytest', 'pytest-flask', 'pytest-mock']
+if sys.version_info < (3, 3):
+    tests_require.extend(['mock'])
 
 entry_points = {
     'console_scripts': [
@@ -50,7 +57,10 @@ args = dict(name='guessit-rest',
             tests_require=tests_require,
             entry_points=entry_points,
             test_suite='guessitrest.test',
-            zip_safe=True
-            )
+            zip_safe=True,
+            extras_require={
+                'test': tests_require,
+                'dev': dev_require
+            })
 
 setup(**args)

@@ -51,17 +51,35 @@ Then run guessit rest API using main module.
 
     $ python -m guessitrest.app
 
-Install with Docker
--------------------
+Run with Docker
+---------------
 
 An automated build is available at `Docker Hub <https://hub.docker.com/r/toilal/guessit-rest/>`_.
 
     $ docker run -p 5000:5000 -it toilal/guessit-rest
 
+Run from sources
+----------------
+
+    $ python guessitrest
+
 Usage
 -----
 
 Connect your browser to `http://localhost:5000/?filename=test.avi <http://localhost:5000/?filename=test.avi>`_
+
+Some options are available through command line arguments.
+
+```
+usage: guessitrest [-h] [-l LISTENING_ADRESS] [-p LISTENING_PORT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l LISTENING_ADRESS, --listening-adress LISTENING_ADRESS
+                        Listening IP Adress of the HTTP Server.
+  -p LISTENING_PORT, --listening-port LISTENING_PORT
+                        Listening TCP Port of the HTTP Server.
+```
 
 License
 -------

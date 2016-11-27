@@ -1,7 +1,1 @@
-pytest>=2.7.3
-pytest-capturelog
-pytest-flask
-pylint
-tox
-zest.releaser[recommended]
--e .
+-e .[dev,test]
