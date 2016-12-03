@@ -26,60 +26,82 @@ Install with pip
 
 Python package is available on `PyPI <https://pypi.python.org/pypi/guessit-rest>`_.
 
+.. code:: shell
+
     $ pip install guessit-rest
 
 Then run guessit rest API using entry point.
+
+.. code:: shell
 
     $ guessit-rest
 
 Install from sources
 --------------------
+.. code:: shell
 
     $ git clone https://github.com/guessit-io/guessit-rest
-
     $ cd guessit-rest
 
 Then configure a virtualenv with [pyenv](https://github.com/yyuu/pyenv) or any virtualenv manager you may like.
+
+.. code:: shell
 
     $ pyenv virtualenv ...
 
 Then install dependencies in the virtualenv.
 
+.. code:: shell
+
     $ pip install -e .
 
 Then run guessit rest API using main module.
 
-    $ python -m guessitrest.app
+.. code:: shell
+
+    $ python guessitrest
 
 Run with Docker
 ---------------
 
 An automated build is available at `Docker Hub <https://hub.docker.com/r/toilal/guessit-rest/>`_.
 
+.. code:: shell
+
     $ docker run -p 5000:5000 -it toilal/guessit-rest
-
-Run from sources
-----------------
-
-    $ python guessitrest
 
 Usage
 -----
 
 Connect your browser to `http://localhost:5000/?filename=test.avi <http://localhost:5000/?filename=test.avi>`_
 
-Some options are available through command line arguments.
+API Documentation is available on
+`Swagger UI <http://petstore.swagger.io/?url=https://raw.githubusercontent.com/guessit-io/guessit-rest/master/swagger.yaml>`_
 
-```
-usage: guessitrest [-h] [-l LISTENING_ADRESS] [-p LISTENING_PORT]
+A test server is available on `http://v2.api.guessit.io <http://v2.api.guessit.io>`_, but if you really need a GuessIt
+REST API, please host this project on your own server.
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -l LISTENING_ADRESS, --listening-adress LISTENING_ADRESS
-                        Listening IP Adress of the HTTP Server.
-  -p LISTENING_PORT, --listening-port LISTENING_PORT
-                        Listening TCP Port of the HTTP Server.
-```
+.. code::
+
+    usage: guessitrest [-h] [-l LISTENING_ADRESS] [-p LISTENING_PORT]
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -l LISTENING_ADRESS, --listening-adress LISTENING_ADRESS
+                            Listening IP Adress of the HTTP Server.
+      -p LISTENING_PORT, --listening-port LISTENING_PORT
+                            Listening TCP Port of the HTTP Server.
+
+flask-restful
+-------------
+
+This project currently use a `fork of flask-restful <https://github.com/Toilal/flask-restful>`_. See
+`flask-restful/flask-restful#645 <https://github.com/flask-restful/flask-restful/pull/645>`_.
+
+As a workaround, we use a git submodule pointing to the fork and a symlink to make it available from sources.
+
+You can still run REST API with original flask-restful, but using POST with multiple filenames on ```/list/```
+resource is broken.
 
 License
 -------
