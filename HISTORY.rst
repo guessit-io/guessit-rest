@@ -4,7 +4,7 @@ History
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add support for multiple filename input in `/list/` resource.
 
 
 2.0 (2015-12-01)
