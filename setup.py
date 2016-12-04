@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import io
 import os
+import re
 import sys
 
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
-
 
 install_requires = ['flask-cors', 'guessit']  # 'flask-restful'
 # We need this pull request to be merged and released https://github.com/flask-restful/flask-restful/pull/645
@@ -29,8 +29,11 @@ entry_points = {
     ],
 }
 
+with io.open('guessitrest/__version__.py', 'r') as f:
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]$', f.read(), re.MULTILINE).group(1)
+
 args = dict(name='guessit-rest',
-            version='2.1.dev0',
+            version=version,
             description='GuessIt - REST WebService',
             long_description=README,
             # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
