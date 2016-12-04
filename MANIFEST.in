@@ -1,5 +1,7 @@
 recursive-include guessitrest *.py *.yml *.txt *.ini
 recursive-exclude guessitrest *.pyc
+exclude .gitmodules
+flask-restful-fork
 include LICENSE
 include *.rst
 include *.ini
