@@ -50,10 +50,32 @@ class GuessIt(Resource):
         return self._impl('json')
 
 
+class GuessItList(Resource):
+    def _impl(self, location):
+        parser = reqparse.RequestParser()
+        parser.add_argument('filename', action='append', required=True, help='Filename to parse', location=location)
+        parser.add_argument('options', action='store', help='Guessit options', location=location)
+        args = parser.parse_args()
+
+        ret = []
+
+        for filename in args.filename:
+            ret.append(guessit.guessit(filename, args.options))
+
+        return ret
+
+    def get(self):
+        return self._impl('args')
+
+    def post(self):
+        return self._impl('json')
+
+
 class GuessItVersion(Resource):
     def get(self):
         return {'guessit': guessit.__version__, 'rest': __version__}
 
 
 api.add_resource(GuessIt, '/')
+api.add_resource(GuessItList, '/batch/')
 api.add_resource(GuessItVersion, '/version/')

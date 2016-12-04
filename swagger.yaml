@@ -1,12 +1,12 @@
 swagger: '2.0'
 info:
   title: GuessIt 2 API
-  description: Extract information from video filename
-  version: 2.0.0
-host: api.guessit.io
+  description: Extract as much information as possible from a video filename, filepath or release name.
+  version: 2.1.0
+host: v2.api.guessit.io
 schemes:
-  - https
-basePath: /v2
+  - http
+basePath: /
 produces:
   - application/json
 consumes:
@@ -14,23 +14,22 @@ consumes:
 paths:
   /:
     get:
-      description: |
-        Returns guessit match object for given filename or release name.
+      description: Compute a Match Object from a filename, filepath or release name.
       parameters:
         - name: filename
           in: query
-          description: The filename or release name
+          description: The filename, filepath or release name to process.
           required: true
           type: string
         - name: options
           in: query
-          description: Options to pass
+          description: Options to pass.
           type: string
       responses:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Matches'
+            $ref: '#/definitions/Match'
         '400':
           description: Bad Request
           schema:
@@ -40,12 +39,10 @@ paths:
           schema:
             $ref: '#/definitions/UnexpectedError'
     post:
-      description: |
-        Returns guessit match object for given filename or release name.
+      description: Compute a Match Object from given filename, filepath or release name.
       parameters:
         - in: body
           name: body
-          description: Object containing filename and options
           required: true
           schema:
             $ref: '#/definitions/GuessItRequest'
@@ -53,7 +50,61 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Matches'
+            $ref: '#/definitions/Match'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ParametersError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/UnexpectedError'
+  /list/:
+    get:
+      description: Compute a list of Match Objects from a list of filename, filepath or release name. Output list has the same order as input list.
+      parameters:
+        - name: filename
+          in: query
+          description: The list of filename or release name
+          required: true
+          type: array
+          items:
+            type: string
+        - name: options
+          in: query
+          description: Options to pass
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Match'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ParametersError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/UnexpectedError'
+    post:
+      description: Compute a list of Match Objects from a list of filename, filepath or release name. Output list has the same order as input list.
+      parameters:
+        - in: body
+          name: body
+          description: Object containing list of filename and options
+          required: true
+          schema:
+            $ref: '#/definitions/GuessItListRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Match'
         '400':
           description: Bad Request
           schema:
@@ -64,8 +115,7 @@ paths:
             $ref: '#/definitions/UnexpectedError'
   /version/:
     get:
-      description: |
-        Give version information
+      description: Retrieve version information
       responses:
         '200':
           description: OK
@@ -100,6 +150,7 @@ definitions:
             description: Error message related to options parameter
   GuessItRequest:
     type: object
+    description: Object containing the filename, filepath or release name, and GuessIt options.
     required:
       - filename
     properties:
@@ -109,10 +160,24 @@ definitions:
       options:
         type: object
         description: Options to pass, as an object
-  Matches:
+  GuessItListRequest:
     type: object
-    title: Matches
-    description: Matches object as using Command Line with --json option.
+    description: Object containing a list of filename, filepath or release name, and GuessIt options.
+    required:
+      - filename
+    properties:
+      filename:
+        type: array
+        items:
+          type: string
+        description: The list of filename, filepath or release name
+      options:
+        type: object
+        description: Options to pass, as an object
+  Match:
+    type: object
+    title: Match Object
+    description: The same GuessIt Match Object as the one returned with --json option on the CLI.
   GuessItVersion:
     type: object
     title: Version
@@ -122,7 +187,7 @@ definitions:
     properties:
       guessit:
         type: string
-        description: Version of guessit
+        description: Version of GuessIt.
       rest:
         type: string
-        description: Version of the rest api
+        description: Version of the GuessIt REST API.
