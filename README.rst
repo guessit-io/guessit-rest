@@ -64,11 +64,11 @@ Then run guessit rest API using main module.
 Run with Docker
 ---------------
 
-An automated build is available at `Docker Hub <https://hub.docker.com/r/toilal/guessit-rest/>`_.
+An automated build is available at `Docker Hub <https://hub.docker.com/r/guessit/guessit-rest/>`_.
 
 .. code:: shell
 
-    $ docker run -p 5000:5000 -it toilal/guessit-rest
+    $ docker run -p 5000:5000 -it guessit/guessit-rest
 
 Usage
 -----
