@@ -77,5 +77,5 @@ class GuessItVersion(Resource):
 
 
 api.add_resource(GuessIt, '/')
-api.add_resource(GuessItList, '/batch/')
+api.add_resource(GuessItList, '/list/')
 api.add_resource(GuessItVersion, '/version/')
