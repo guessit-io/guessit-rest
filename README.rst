@@ -43,7 +43,7 @@ Install from sources
     $ git clone https://github.com/guessit-io/guessit-rest
     $ cd guessit-rest
 
-Then configure a virtualenv with [pyenv](https://github.com/yyuu/pyenv) or any virtualenv manager you may like.
+Then configure a virtualenv with `pyenv <https://github.com/yyuu/pyenv>`_ or any virtualenv manager you may like.
 
 .. code:: shell
 
@@ -78,7 +78,7 @@ Connect your browser to `http://localhost:5000/?filename=test.avi <http://localh
 API Documentation is available on
 `Swagger UI <http://petstore.swagger.io/?url=https://raw.githubusercontent.com/guessit-io/guessit-rest/master/swagger.yaml>`_
 
-A test server is available on `http://v2.api.guessit.io <http://v2.api.guessit.io>`_, but if you really need a GuessIt
+A test server is available on `http://api.guessit.io <http://api.guessit.io>`_, but if you really need a GuessIt
 REST API, please host this project on your own server.
 
 .. code::
