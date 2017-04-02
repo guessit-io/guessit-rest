@@ -78,8 +78,8 @@ Connect your browser to `http://localhost:5000/?filename=test.avi <http://localh
 API Documentation is available on
 `Swagger UI <http://petstore.swagger.io/?url=https://raw.githubusercontent.com/guessit-io/guessit-rest/master/swagger.yaml>`_
 
-A test server is available on `http://api.guessit.io <http://api.guessit.io>`_, but if you really need a GuessIt
-REST API, please host this project on your own server.
+A test server is available on `https://api.guessit.io <https://api.guessit.io>`_. This server has a small API rate limit,
+so if you really need a GuessIt REST API, you have to host it on your own server.
 
 .. code::
 
