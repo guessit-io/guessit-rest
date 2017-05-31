@@ -10,8 +10,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-install_requires = ['flask-cors', 'guessit']  # 'flask-restful'
-# We need this pull request to be merged and released https://github.com/flask-restful/flask-restful/pull/645
+install_requires = ['flask-cors', 'guessit', 'flask-restful>=0.3.6']
 if sys.version_info < (2, 7):
     install_requires.extend(['argparse'])
 

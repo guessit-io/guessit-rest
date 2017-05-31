@@ -4,7 +4,8 @@ History
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use official `flask-restful>=0.3.6`
+- Add python 3.6 support
 
 
 2.1.0 (2016-12-04)
