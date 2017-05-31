@@ -1,7 +1,7 @@
 History
 =======
 
-2.1.1 (unreleased)
+2.1.1 (2017-05-31)
 ------------------
 
 - Use official `flask-restful>=0.3.6`
