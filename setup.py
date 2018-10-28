@@ -24,11 +24,14 @@ entry_points = {
     ],
 }
 
-with io.open('guessitrest/__version__.py', 'r') as f:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]$', f.read(), re.MULTILINE).group(1)
+about = {}
+
+here = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(here, 'guessitrest', '__version__.py'), 'r') as f:
+    exec(f.read(), about)
 
 args = dict(name='guessit-rest',
-            version=version,
+            version=about['__version__'],
             description='GuessIt - REST WebService',
             long_description=README,
             # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers

@@ -14,7 +14,16 @@ from flask_restful import Api, Resource, reqparse
 import guessit
 from guessit.jsonutils import GuessitEncoder
 
-from . import __version__
+try:
+    from . import __version__
+except ImportError: # pragma: no cover
+    # wsgi module context doesn't support this import
+    about = {}
+
+    here = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(here, '__version__.py'), 'r') as f:
+        exec(f.read(), about)
+    __version__ = about['__version__']
 
 app = Flask(__name__)
 CORS(app)

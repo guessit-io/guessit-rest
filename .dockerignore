@@ -4,7 +4,7 @@ __pycache__/
 **/*.py[cod]
 .cache/
 .eggs/
-*.egg-info/
+guessit_rest.egg-info/
 *.egg
 .tox/
 .coverage
@@ -12,3 +12,4 @@ __pycache__/
 doc/
 *.log
 *.iml
+**/test/
