@@ -10,17 +10,13 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-install_requires = ['flask-cors', 'guessit', 'flask-restful>=0.3.6']
-if sys.version_info < (2, 7):
-    install_requires.extend(['argparse'])
+install_requires = ['Flask', 'flask-cors', 'guessit', 'flask-restful>=0.3.6']
 
 setup_requires = ['pytest-runner']
 
 dev_require = ['zest.releaser[recommended]', 'pylint', 'tox', 'pylint']
 
 tests_require = ['pytest', 'pytest-flask', 'pytest-mock']
-if sys.version_info < (3, 3):
-    tests_require.extend(['mock'])
 
 entry_points = {
     'console_scripts': [
@@ -43,8 +39,10 @@ args = dict(name='guessit-rest',
                          'Programming Language :: Python :: 2',
                          'Programming Language :: Python :: 2.7',
                          'Programming Language :: Python :: 3',
-                         'Programming Language :: Python :: 3.3',
                          'Programming Language :: Python :: 3.4',
+                         'Programming Language :: Python :: 3.5',
+                         'Programming Language :: Python :: 3.6',
+                         'Programming Language :: Python :: 3.7',
                          'Topic :: Multimedia',
                          'Topic :: Software Development :: Libraries :: Python Modules'
                          ],

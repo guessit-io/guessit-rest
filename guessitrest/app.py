@@ -24,7 +24,7 @@ app.debug = os.environ.get('GUESSIT-REST-DEBUG', False)
 if not app.debug:
     handler = RotatingFileHandler('guessit-rest.log', maxBytes=5 * 1024 * 1024, backupCount=5)
     handler.setLevel(logging.DEBUG)
-    app.logger.addHandler(handler)
+    app.logger.addHandler(handler)  # pylint:disable=no-member
 
 
 @api.representation('application/json')
