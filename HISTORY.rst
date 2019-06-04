@@ -4,7 +4,7 @@ History
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upgrade docker image to `tiangolo/uwsgi-nginx-flask:python3.7-alpine3.8`
 
 
 2.1.1 (2017-05-31)
