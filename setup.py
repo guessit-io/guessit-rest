@@ -36,7 +36,7 @@ args = dict(name='guessit-rest',
             long_description=README,
             # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
             classifiers=['Development Status :: 5 - Production/Stable',
-                         'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
+                         'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
                          'Operating System :: OS Independent',
                          'Intended Audience :: Developers',
                          'Programming Language :: Python :: 2',
