@@ -22,7 +22,7 @@ except ImportError: # pragma: no cover
 
     here = os.path.abspath(os.path.dirname(__file__))
     with open(os.path.join(here, '__version__.py'), 'r') as f:
-        exec(f.read(), about)
+        exec(f.read(), about)  # pylint:disable=exec-used
     __version__ = about['__version__']
 
 app = Flask(__name__)
