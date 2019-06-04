@@ -92,17 +92,6 @@ so if you really need a GuessIt REST API, you have to host it on your own server
       -p LISTENING_PORT, --listening-port LISTENING_PORT
                             Listening TCP Port of the HTTP Server.
 
-flask-restful
--------------
-
-This project currently use a `fork of flask-restful <https://github.com/Toilal/flask-restful>`_. See
-`flask-restful/flask-restful#645 <https://github.com/flask-restful/flask-restful/pull/645>`_.
-
-As a workaround, we use a copy of the forked flask-restul module to make it available from sources.
-
-You can still run REST API with original flask-restful, but using POST with multiple filenames on ```/list/```
-resource is broken.
-
 License
 -------
 
