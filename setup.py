@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 
-install_requires = ['Flask', 'flask-cors', 'guessit', 'flask-restful>=0.3.6']
+install_requires = ['Flask', 'flask-cors', 'guessit>=3.4.0', 'flask-restful>=0.3.6']
 
 setup_requires = ['pytest-runner']
 
